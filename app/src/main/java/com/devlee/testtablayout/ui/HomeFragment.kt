@@ -28,6 +28,8 @@ class HomeFragment : Fragment() {
 
     private val tabViewModel: TabViewModel by activityViewModels()
 
+    var toast: Toast? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -56,6 +58,10 @@ class HomeFragment : Fragment() {
         }.attach()
 
         binding.fab.setOnClickListener { view ->
+            if (toast != null)  {
+                toast?.cancel()
+                toast = null
+            }
             val type = Random.nextInt(3)
             val value1 = Random.nextInt(1000)
             val value2 = Random.nextInt(4000)
@@ -67,7 +73,10 @@ class HomeFragment : Fragment() {
 
             Log.i("janghee", "Type: $type, value1: $value1, value2: $value2, value3: $value3")
 
-            Toast.makeText(view.context, "Type: $type", Toast.LENGTH_SHORT).show()
+            if (toast == null) {
+                toast = Toast.makeText(view.context, "Type: $type", Toast.LENGTH_SHORT)
+                toast?.show()
+            }
         }
 
         tabViewModel.tabPositionLiveData.observe(viewLifecycleOwner) { pos ->
