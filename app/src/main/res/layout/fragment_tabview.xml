@@ -15,58 +15,72 @@
 
         <TextView
             android:id="@+id/textViewType"
+            numberText="@{data.type}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            numberText="@{data.type}"
-            tools:text="TextView"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/textViewValue1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="TextView" />
 
         <TextView
             android:id="@+id/textViewValue1"
+            numberText="@{data.value1}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            numberText="@{data.value1}"
-            tools:text="TextView"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/textViewValue2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewType" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewType"
+            tools:text="TextView" />
 
         <TextView
             android:id="@+id/textViewValue2"
+            numberText="@{data.value2}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            numberText="@{data.value2}"
-            tools:text="TextView"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/textViewVlaue3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewValue1" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewValue1"
+            tools:text="TextView" />
 
         <TextView
             android:id="@+id/textViewVlaue3"
+            numberText="@{data.value3}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            numberText="@{data.value3}"
-            tools:text="TextView"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewValue2" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewValue2"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type: "
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewType"
+            app:layout_constraintEnd_toStartOf="@+id/textViewType"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewType" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.devlee.testtablayout.databinding.FragmentTabviewBinding
 import com.devlee.testtablayout.utils.Constants.TAB_BUNDLE_KEY
+import com.devlee.testtablayout.viewmodel.TabFragmentData
 import com.devlee.testtablayout.viewmodel.TabViewModel
 
-class TabFragment: Fragment() {
+class TabFragment : Fragment() {
     private var tabType: Int = 0
 
     private var _binding: FragmentTabviewBinding? = null
@@ -43,7 +44,6 @@ class TabFragment: Fragment() {
     ): View? {
         _binding = FragmentTabviewBinding.inflate(inflater, container, false)
         binding.apply {
-            data = viewModel.tabDataLiveData.value
             lifecycleOwner = viewLifecycleOwner
         }
         return binding.root
@@ -52,7 +52,16 @@ class TabFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.tabDataLiveData.observe(viewLifecycleOwner) {
-            binding.data = it
+            when {
+                tabType == 0 -> {
+                    when (it) {
+                        is TabFragmentData.Nil -> binding.data = null
+                        is TabFragmentData.FullSwingData -> binding.data = it.tabData
+                    }
+                }
+                tabType == 1 && it is TabFragmentData.ApproachData -> binding.data = it.tabData
+                tabType == 2 && it is TabFragmentData.PuttData -> binding.data = it.tabData
+            }
         }
     }
 }
