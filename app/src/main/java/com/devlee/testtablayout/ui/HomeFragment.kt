@@ -43,9 +43,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        fragments.add(TabFragment.newInstance1(0))
-        fragments.add(TabFragment.newInstance2(1))
-        fragments.add(TabFragment.newInstance3(2))
+        fragments.add(TabFragment.newInstance(0))
+        fragments.add(TabFragment.newInstance(1))
+        fragments.add(TabFragment.newInstance(2))
         viewPagerAdapter = PageAdapter(requireActivity(), fragments)
         return binding.root
     }

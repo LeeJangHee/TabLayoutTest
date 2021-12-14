@@ -20,19 +20,7 @@ class TabFragment: Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance1(type: Int) = TabFragment().apply {
-            arguments = Bundle().apply {
-                putInt(TAB_BUNDLE_KEY, type)
-            }
-        }
-        @JvmStatic
-        fun newInstance2(type: Int) = TabFragment().apply {
-            arguments = Bundle().apply {
-                putInt(TAB_BUNDLE_KEY, type)
-            }
-        }
-        @JvmStatic
-        fun newInstance3(type: Int) = TabFragment().apply {
+        fun newInstance(type: Int) = TabFragment().apply {
             arguments = Bundle().apply {
                 putInt(TAB_BUNDLE_KEY, type)
             }
